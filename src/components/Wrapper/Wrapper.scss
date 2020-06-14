@@ -1,0 +1,8 @@
+@import '../../styles/base.scss';
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4,1fr);
+}
+

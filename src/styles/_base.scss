@@ -1,0 +1,11 @@
+@import './config';
+
+*{
+  @include reset-list;
+}
+
+html,body{
+  @include bg-dark;
+  font-size: 10px;
+  font-family: $font-stack;
+}

@@ -1,0 +1,10 @@
+@import '../../styles/base.scss';
+
+.ctn-btn {
+  @include flex-center(row);
+}
+
+.compress-btn {
+  @include purple-btn;
+  cursor: pointer;
+}

@@ -1,0 +1,48 @@
+$dark: #13132C;
+$dark-purple: #57557D;
+$grey: #7C8C94;
+$white: #d4d4d4;
+$light-purple: #716DCF;
+
+$font-stack:'Roboto', sans-serif;
+
+
+
+@mixin flex-center($direction) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@mixin reset-list {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+@mixin bg-dark {
+  background-color: $dark;
+  color: $grey;
+}
+
+@mixin bg-grey {
+  background: $white;
+  box-shadow: 0 0 1rem $dark;
+  border-radius: 1rem;
+  color: $light-purple;
+  text-shadow: 0.1rem 0 0.1rem $dark;
+}
+
+@mixin purple-btn {
+  padding: 2rem 4rem;
+  background-color: $light-purple;
+  color: $white;
+  border: $grey;
+  border-radius: 1rem;
+  text-transform: uppercase;
+  box-shadow: 0 0 1rem $dark;
+  text-shadow: 0 0 1rem $dark;
+}
