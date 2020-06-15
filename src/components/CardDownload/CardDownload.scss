@@ -1,0 +1,41 @@
+@import '../../styles/_base.scss';
+
+.download-ctn{
+  @include bg-grey;
+  position: absolute;
+  width: 90%;
+  left: 50%;
+  bottom: -2rem;
+  transform: translate(-45%, 0);
+
+  p {
+    margin: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .btn-ctn {
+    width: 100%;
+    padding: 2rem 4rem;
+    background-color: #716DCF;
+    color: #d4d4d4;
+    border: #7C8C94;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    text-shadow: 0 0 1rem #13132C;
+    box-shadow: 0 0 1rem #13132C;
+    
+
+    a {
+      @include bg-dark;
+      padding: 1rem 3rem;
+      color: $white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: 0.2rem solid $white;
+      border-radius: 1rem;
+      box-shadow: 0 0 0.2rem $white;
+      outline: none;
+    }
+  }
+}

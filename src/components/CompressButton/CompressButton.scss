@@ -2,9 +2,14 @@
 
 .ctn-btn {
   @include flex-center(row);
+  margin: 5rem 0 0 0;
+  
 }
 
 .compress-btn {
   @include purple-btn;
+  background: linear-gradient(to bottom right, $light-purple, $dark-purple);
+  border: 2px solid $white;
+  font-weight: bold;
   cursor: pointer;
 }

@@ -9,3 +9,96 @@ html,body{
   font-size: 10px;
   font-family: $font-stack;
 }
+
+a {
+  text-decoration: none;
+}
+
+button {
+  outline: none;
+}
+
+
+/* MEDIAQUERIES */
+@media (min-width: 320px) {
+  html, body {
+    font-size: 8px;
+  }
+}
+
+@media (min-width: 360px) {
+  .card {
+    width: 80%;
+  }
+}
+
+@media (min-width: 375px) {
+  .instruction {
+    width: 90%;
+  }
+
+  .card {
+    width: 70%;
+  }
+}
+
+@media (min-width: 768px) {
+  html,body {
+    font-size: 10px;
+  }
+
+  .wrapper {
+    height: 100vh;
+  }
+  
+  .instruction {
+    width: 80%;
+  }
+
+  .card {
+    width: 55%;
+  }
+}
+
+@media (min-width: 1024px) {
+  html,body {
+    font-size: 13px;
+  }
+
+  .wrapper {
+    height: 100vh;
+  }
+  
+  .instruction {
+    width: 65%;
+  }
+
+  .card {
+    width: 45%;
+  }
+}
+
+
+// Large screens grid layout
+
+@media (min-width: 1200px) {
+  html,body {
+    font-size: 10px;
+  }
+  .wrapper{
+    max-width: 1280px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .container {
+    display: grid;
+    height: 70vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .card {
+    width: 35rem;
+    height: 35rem;
+  }
+}

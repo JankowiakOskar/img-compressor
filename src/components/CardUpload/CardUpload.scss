@@ -3,32 +3,62 @@
 
 .card {
   @include flex-center(column);
+  position: relative;
+  margin: 3rem auto;
+  height: 30rem;
+  max-width: 90%;
 }
 
-.upload-img {
+.img-ctn {
+  height: 100%;
+  width: 100%;
+
+  img {
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+  }
+}
+
+.file-ctn {
   @include bg-grey;
-  width: 80%;
+  width: 90%;
+  position: absolute;
+  left: 50%;
+  bottom: -2rem;
+  transform: translate(-45%, 0);
   display: flex;
   flex-direction: column;
-  margin: 1rem;
 
   label {
     margin: 1rem 0;
     font-size: 2rem;
-    font-size: bold;
+    font-weight: bold;
+  }
+
+  input[type=file] {
+    @include purple-btn;
   }
 }
 
-.img-ctn {
-  margin: 2rem 0 0 0;
-  max-width: 90%;
-}
-
-img {
+.size-message {
+  position: absolute;
+  padding: 1rem;
   width: 100%;
-  border-radius: 1rem;
+  top:0;
+  background: $dark-purple;
+  color: $white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 1rem 1rem 0 0;
 }
 
-input[type=file] {
-  @include purple-btn;
+
+
+@media (min-width: 768px) {
+  .card {
+    width: 60%;
+  }
 }

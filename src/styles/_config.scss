@@ -1,10 +1,10 @@
 $dark: #13132C;
 $dark-purple: #57557D;
 $grey: #7C8C94;
-$white: #d4d4d4;
+$white: #fff;
 $light-purple: #716DCF;
 
-$font-stack:'Roboto', sans-serif;
+$font-stack: 'Sriracha', cursive;
 
 
 
@@ -22,7 +22,10 @@ $font-stack:'Roboto', sans-serif;
   padding: 0;
 }
 
-
+@mixin bg-purple {
+  background: $light-purple;
+  color: $dark;
+}
 @mixin bg-dark {
   background-color: $dark;
   color: $grey;
@@ -33,16 +36,15 @@ $font-stack:'Roboto', sans-serif;
   box-shadow: 0 0 1rem $dark;
   border-radius: 1rem;
   color: $light-purple;
-  text-shadow: 0.1rem 0 0.1rem $dark;
+  text-shadow: 0 0 0.1rem #000;
 }
 
 @mixin purple-btn {
-  padding: 2rem 4rem;
+  padding: 1rem 4rem;
   background-color: $light-purple;
   color: $white;
   border: $grey;
   border-radius: 1rem;
-  text-transform: uppercase;
   box-shadow: 0 0 1rem $dark;
   text-shadow: 0 0 1rem $dark;
 }
