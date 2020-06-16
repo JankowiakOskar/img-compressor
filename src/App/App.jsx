@@ -55,7 +55,7 @@ function App() {
     }
     try {
       const compressedImg = await imageCompression(files.originalImg, options)
-      await setFile({
+      setFile({
           originalImg: files.originalImg,
           originalLink: files.originalLink,
           originalWeight: files.originalWeight,
@@ -64,7 +64,7 @@ function App() {
           compressedLink: URL.createObjectURL(compressedImg),
           compressedWeight: compressedImg.size
         })
-      await setStatus({
+      setStatus({
           clicked: true,
           uploadImg: status.uploadImg,
         },

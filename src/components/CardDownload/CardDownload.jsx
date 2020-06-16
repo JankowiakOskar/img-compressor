@@ -1,16 +1,21 @@
 import './CardDownload.scss';
-import React from 'react';
+import React, {useRef, useEffect} from 'react';
 // import Message from '../Message/Message';
 
 const CardDownload = ({ status, imgFiles, convertToMB }) => {
   const URL = imgFiles.compressedLink;
   const { compressedName } = imgFiles;
-
   const sizeMessage = imgFiles.compressedImg.name ? (
     <div className="size-message">
       <p>Your photo is ready to download, and now has only {convertToMB(imgFiles.compressedImg.size)} Mb</p>
     </div>
   ) : null
+
+  // const wrapperCard = useRef(null);
+
+  // useEffect(() => {
+  //   const cardElements = wrapperCard.current.children;
+  // })
 
   return ( 
     <div className="card">

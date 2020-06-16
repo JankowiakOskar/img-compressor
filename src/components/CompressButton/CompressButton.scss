@@ -8,8 +8,10 @@
 
 .compress-btn {
   @include purple-btn;
-  background: linear-gradient(to bottom right, $light-purple, $dark-purple);
+  background: linear-gradient(to bottom left, $light-purple, $dark-purple);
+  color: $white;
   border: 2px solid $white;
   font-weight: bold;
   cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
