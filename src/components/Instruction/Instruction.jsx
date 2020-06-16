@@ -1,19 +1,26 @@
 import './Instruction.scss';
 import React, {useState, useRef, useEffect} from 'react';
-import {TimelineLite} from 'gsap';
+import gsap from 'gsap';
 
 const Instruction = () => {
-  const buttonRef = useRef(null);
-  let tl = null
+  const wrapperRef = useRef(null);
 
   useEffect(() => {
-    const button = buttonRef.current;
-    tl= new TimelineLite({ paused: true }) 
-    .fromTo(button, {x: 0}, {x: 200, duration: 1});    
-  })
+    const wrapper = wrapperRef.current;
+    const elements = wrapper.children;
+    const title = elements[0];
+    const question = elements[1];
+    const instruction = elements[2];
+
+    const tl = gsap.timeline({defaults: {ease: 'bounce.out'}});
+
+    tl.fromTo(wrapper, {y: '-=300'}, {duration: 1, y: '+=300'})
+      .fromTo(title, {y: '-=300'}, {duration: 1, y: '+=300'}, '-=0.5')
+      .fromTo([question,instruction], {scaleY: 0, autoAlpha: 0}, {duration: 1, scaleY: 1, autoAlpha: 1}, '-=0.5');
+  },[])
 
   return ( 
-    <div className="instruction">
+    <div ref={wrapperRef} className="instruction">
       <h1>Image compressor <i className="fas fa-camera-retro"></i></h1>
       <h2>How to compress photo?</h2>
       <ul>
@@ -21,7 +28,6 @@ const Instruction = () => {
         <li>Click compress button</li>
         <li>Download your compressed image</li>
       </ul>
-      <button ref={buttonRef} onClick={() => tl.play()}>Ok</button>
     </div>
    );
 }

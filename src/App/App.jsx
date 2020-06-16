@@ -18,12 +18,12 @@ function App() {
       compressedWeight: 0,
     }
   );
-
   const [status, setStatus] = useState({
       clicked: false,
       uploadImg: false,
     }
   )
+  const [isLoading, setLoading] = useState(false);
 
 
   const uploadHandler = (file) => {
@@ -48,13 +48,18 @@ function App() {
   }
 
   const handleCompress = async() => {
+    setLoading(true);
+
     const options = {
       maxSizeMB: 1,
       maxWidthOrHeight: 1920,
       useWebWorker: true
     }
+
     try {
       const compressedImg = await imageCompression(files.originalImg, options)
+      setLoading(false)
+
       setFile({
           originalImg: files.originalImg,
           originalLink: files.originalLink,
@@ -64,12 +69,14 @@ function App() {
           compressedLink: URL.createObjectURL(compressedImg),
           compressedWeight: compressedImg.size
         })
+
       setStatus({
           clicked: true,
           uploadImg: status.uploadImg,
         },
       )
     }
+
     catch (error){
       alert('Something went wrong, try again!');
     }
@@ -88,7 +95,7 @@ function App() {
         <Instruction/>
         <div className="container">
           <CardUpload upload={uploadHandler} imgFiles={files} status={status} convertToMB={convertToMB}/>
-          {status.uploadImg&& <CompressButton compressing={handleCompress}/>}
+          {status.uploadImg&& <CompressButton compressing={handleCompress} isLoading={isLoading}/>}
           {status.clicked&& <CardDownload imgFiles={files} status={status} convertToMB={convertToMB}/>}
         </div>
       </Wrapper>

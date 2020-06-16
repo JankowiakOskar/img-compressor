@@ -1,24 +1,28 @@
 import './CardDownload.scss';
 import React, {useRef, useEffect} from 'react';
-// import Message from '../Message/Message';
-
-const CardDownload = ({ status, imgFiles, convertToMB }) => {
+import gsap from 'gsap';
+const CardDownload = ({ imgFiles, convertToMB }) => {
   const URL = imgFiles.compressedLink;
   const { compressedName } = imgFiles;
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    const cardWrapper = cardRef.current;
+    const tl = gsap.timeline({defaults: {ease: 'power3.out'}});
+    gsap.set(cardWrapper, {autoAlpha: 0});
+    tl.fromTo(cardWrapper, {x:'-=200'}, {duration: 3, autoAlpha:1, x:'+=200'})
+  }, [])
+
+
   const sizeMessage = imgFiles.compressedImg.name ? (
     <div className="size-message">
-      <p>Your photo is ready to download, and now has only {convertToMB(imgFiles.compressedImg.size)} Mb</p>
+      <p>and now has only {convertToMB(imgFiles.compressedImg.size)} Mb</p>
     </div>
   ) : null
 
-  // const wrapperCard = useRef(null);
-
-  // useEffect(() => {
-  //   const cardElements = wrapperCard.current.children;
-  // })
 
   return ( 
-    <div className="card">
+    <div ref={cardRef} className="card card-download">
       <div className="img-ctn">
         <img src={URL} alt=""/>
       </div>

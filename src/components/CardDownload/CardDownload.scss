@@ -1,5 +1,9 @@
 @import '../../styles/_base.scss';
 
+.card-download {
+  opacity: 0;
+}
+
 .download-ctn{
   @include bg-grey;
   position: absolute;
