@@ -1,4 +1,4 @@
-# Img CompressOR
+# Img Compressor
 
 App build with React Hooks, GSAP and browser-image-compression. Follow instructions and enjoy your compressed photos.  
 
