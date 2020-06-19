@@ -24,21 +24,16 @@ function App() {
   });
 
   const uploadHandler = (file) => {
-    const imageSizeMB = convertToMB(file.size);
-    const checkSize = imageSizeMB < 1 ? true : false;
-    checkSize && alert('Your image size have to has minimum 1 MB');
-
-    if (!checkSize) {
-      setFile({
-        originalImg: file,
-        originalLink: URL.createObjectURL(file),
-        originalWeight: file.size,
-      });
-      setStatus({
-        clicked: !status.clicked ? status.clicked : !status.clicked,
-        uploadImg: true,
-      });
-    }
+    setFile({
+      originalImg: file,
+      originalLink: URL.createObjectURL(file),
+      originalWeight: file.size,
+    });
+    setStatus({
+      clicked: !status.clicked ? status.clicked : !status.clicked,
+      uploadImg: true,
+    });
+    
   };
 
   const handleCompress = async () => {
@@ -47,7 +42,6 @@ function App() {
       ...status,
       isLoading: true,
     });
-
     const options = {
       maxSizeMB: 1,
       maxWidthOrHeight: 1920,
@@ -61,7 +55,6 @@ function App() {
         ...status,
         isLoading: false,
       });
-
       setFile({
         ...files,
         compressedImg,
@@ -82,23 +75,19 @@ function App() {
   const restartApp = () => {
     const fileObj = {...files};
     const statusObj = {...status};
-
     // reset all images values
     for(const key in fileObj) {
       if (fileObj.hasOwnProperty(key)) {
         fileObj[key] = ''
       }
     }
-    
     // set all statuses falsy 
     for (const status in statusObj) {
       statusObj[status] = false;
     }
-
     setFile({
       ...fileObj
     })
-
     setStatus({
       ...statusObj
     })
@@ -121,6 +110,7 @@ function App() {
             <ButtonsContainer 
             compressing={handleCompress} 
             status={status}
+            setStatus={setStatus}
             restartApp={restartApp} />
           )}
           {status.clicked && (

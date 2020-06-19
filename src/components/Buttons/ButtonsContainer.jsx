@@ -4,7 +4,7 @@ import LoaderSpinner from '../Loader/Loader';
 import CompressButton from './CompressButton/CompressButton';
 import RestartButton from './RestartButton/RestartButton';
 
-const ButtonsContainer = ({ compressing, status, restartApp }) => {
+const ButtonsContainer = ({ compressing, status, setStatus, restartApp }) => {
   
   const toggleLoader = status.isLoading ? 
     <LoaderSpinner/> 
@@ -16,7 +16,7 @@ const ButtonsContainer = ({ compressing, status, restartApp }) => {
   return ( 
     <div className="container-btns">
       {toggleLoader}
-      {status.clicked && <RestartButton restartApp={restartApp}/>}
+      {status.clicked && <RestartButton restartApp={restartApp} status={status} setStatus={setStatus}/>}
     </div>
    );
 }
