@@ -30,11 +30,11 @@
   transform: translate(-45%, 0);
   display: flex;
   flex-direction: column;
+  opacity: 0;
 
   label {
     margin: 1rem;
     font-size: 2rem;
-    font-weight: bold;
   }
 
   input[type=file] {

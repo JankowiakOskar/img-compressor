@@ -1,6 +1,7 @@
 import './CardDownload.scss';
 import React, {useRef, useEffect} from 'react';
 import gsap from 'gsap';
+
 const CardDownload = ({ imgFiles, convertToMB }) => {
   const URL = imgFiles.compressedLink;
   const { compressedName } = imgFiles;

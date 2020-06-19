@@ -1,5 +1,5 @@
 import './Instruction.scss';
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useRef, useEffect} from 'react';
 import gsap from 'gsap';
 
 const Instruction = () => {
@@ -12,9 +12,9 @@ const Instruction = () => {
     const question = elements[1];
     const instruction = elements[2];
 
-    const tl = gsap.timeline({defaults: {ease: 'bounce.out'}});
-
-    tl.fromTo(wrapper, {y: '-=300'}, {duration: 1, y: '+=300'})
+    const tl = gsap.timeline({defaults: {ease: 'power3.out'}});
+    gsap.set(wrapper, { autoAlpha: 0 });
+    tl.fromTo(wrapper, {y: '-=300'}, {duration: 1, delay: 0.3, autoAlpha: 1, y: '+=300'})
       .fromTo(title, {y: '-=300'}, {duration: 1, y: '+=300'}, '-=0.5')
       .fromTo([question,instruction], {scaleY: 0, autoAlpha: 0}, {duration: 1, scaleY: 1, autoAlpha: 1}, '-=0.5');
   },[])
